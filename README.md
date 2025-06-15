@@ -1,35 +1,42 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <title>Футбольна гра: УПЛ + Маяк Ромни</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>⚽ УПЛ + Маяк Ромни</h1>
+body {
+  font-family: 'Arial';
+  text-align: center;
+  background: #e7f2ff;
+  padding: 20px;
+}
 
-  <div id="matchArea">
-    <select id="team1"></select>
-    <select id="team2"></select>
-    <button onclick="playMatch()">Зіграти матч</button>
-    <h2 id="matchResult">Результат буде тут</h2>
-    <div id="goalAnimation"></div>
-  </div>
+select, button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+}
 
-  <div id="fanZone">🎉 Ура! Гол! 🎉</div>
+#leagueTable {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+}
 
-  <h2>Турнірна таблиця</h2>
-  <table id="leagueTable">
-    <thead>
-      <tr><th>Команда</th><th>І</th><th>В</th><th>Н</th><th>П</th><th>ЗМ:ПМ</th><th>Очки</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+#leagueTable th, #leagueTable td {
+  padding: 8px;
+  border: 1px solid #000;
+}
 
-  <h2>Календар матчів</h2>
-  <ul id="calendarList"></ul>
+#goalAnimation {
+  font-size: 40px;
+  color: red;
+  animation: none;
+}
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+@keyframes goalEffect {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#fanZone {
+  font-size: 28px;
+  color: green;
+  display: none;
+  margin-bottom: 20px;
+}
