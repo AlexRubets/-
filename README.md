@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <title>Футбольна гра: УПЛ + Маяк Ромни</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>⚽ УПЛ + Маяк Ромни</h1>
+const teams = [
+  "Динамо", "Шахтар", "Кривбас", "Полісся", "Олександрія",
+  "Зоря", "Дніпро-1", "Ворскла", "Оболонь", "Чорноморець",
+  "Металіст 1925", "Рух", "Колос", "Верес", "Інгулець",
+  "Лівий Берег", "ЛНЗ", "Маяк Ромни"
+];
 
-  <div id="matchArea">
-    <select id="team1"></select>
-    <select id="team2"></select>
-    <button onclick="playMatch()">Зіграти матч</button>
-    <h2 id="matchResult">Результат буде тут</h2>
-    <div id="goalAnimation"></div>
-  </div>
+const realSquads = {
+  "Маяк Ромни": [
+    "Лісний", "Рябенький", "Мурайкін", "Логвин", "Гринько",
+    "Гальченко", "Ільїн", "Лісовий", "Школяренко", "Рубець", "Даценко"
+  ],
+  // Інші команди можна додати пізніше
+};
 
-  <div id="fanZone">🎉 Ура! Гол! 🎉</div>
+const calendar = [];
 
-  <h2>Турнірна таблиця</h2>
-  <table id="leagueTable">
-    <thead>
-      <tr><th>Команда</th><th>І</th><th>В</th><th>Н</th><th>П</th><th>ЗМ:ПМ</th><th>Очки</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+for (let i = 0; i < teams.length; i++) {
+  for (let j = i + 1; j < teams.length; j++) {
+    calendar.push({ home: teams[i], away: teams[j] });
+  }
+}
 
-  <h2>Календар матчів</h2>
-  <ul id="calendarList"></ul>
-
-  <script src="data.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+calendar.sort(() => Math.random() - 0.5); // Перемішати календар
